@@ -18,7 +18,7 @@ public class DiscordBotConfig {
         log.info("Conectando ao Discord...");
 
         // IMPORTANTE: usar createDefault(token) SEM passar intents diretamente no metodo.
-        // A sobrecarga createDefault(token, GatewayIntent...) SUBSTITUI todo o conjunto
+        // A sobrecarga createDefault(token, GatewayIntent...) SUBSTITUI o conjunto
         // padrão de intents pelos que forem passados, em vez de adicioná-los. Isso
         // desabilitaria silenciosamente o GatewayIntent.GUILD_MESSAGES (necessário para
         // receber MessageReceivedEvent de canais de servidor) e faria o listener nunca
