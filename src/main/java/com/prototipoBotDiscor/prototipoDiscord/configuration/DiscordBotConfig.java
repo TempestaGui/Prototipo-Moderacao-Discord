@@ -17,7 +17,7 @@ public class DiscordBotConfig {
                    MessageListener messageListener) throws InterruptedException {
         log.info("Conectando ao Discord...");
 
-        // IMPORTANTE: usar createDefault(token) SEM passar intents diretamente no método.
+        // IMPORTANTE: usar createDefault(token) SEM passar intents diretamente no metodo.
         // A sobrecarga createDefault(token, GatewayIntent...) SUBSTITUI todo o conjunto
         // padrão de intents pelos que forem passados, em vez de adicioná-los. Isso
         // desabilitaria silenciosamente o GatewayIntent.GUILD_MESSAGES (necessário para
