@@ -20,4 +20,4 @@ public class MessageListener extends ListenerAdapter {
                 event.getAuthor().getName(),
                 event.getMessage().getContentDisplay());
     }
-}add
+}
