@@ -12,7 +12,7 @@ public class MessageListener extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if(event.getAuthor().isBot()){
-            log.info("É bot: {}", event.getAuthor());
+            log.info("É bot: {}", event.getAuthor().getName());
             return;
         }
 
