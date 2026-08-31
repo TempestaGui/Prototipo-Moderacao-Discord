@@ -1,9 +1,12 @@
 package com.prototipoBotDiscor.prototipoDiscord.configuration;
 
+import com.prototipoBotDiscor.prototipoDiscord.dto.MensagemDTO;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.springframework.stereotype.Component;
+
+import java.time.Instant;
 
 @Slf4j
 @Component
@@ -16,8 +19,18 @@ public class MessageListener extends ListenerAdapter {
             return;
         }
 
-        log.info("Mensagem recebida de {}: {}",
+        MensagemDTO mensagemRecebida = new MensagemDTO(
+                event.getAuthor().getId(),
                 event.getAuthor().getName(),
-                event.getMessage().getContentDisplay());
+                event.getChannel().getId(),
+                event.getChannel().getName(),
+                event.getMessageId(),
+                event.getMessage().getContentDisplay(),
+                Instant.now()
+        );
+
+        log.info("Mensagem recebida de autor - {} | no canal: {} | conteudo da mensagemRecebida: {}",
+                mensagemRecebida.getAutorName(),
+                mensagemRecebida.getCanalNome(), mensagemRecebida.getConteudo());
     }
 }
