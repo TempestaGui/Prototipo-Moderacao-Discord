@@ -1,4 +1,4 @@
-package com.prototipoBotDiscor.prototipoDiscord.configuration;
+package com.prototipoBotDiscor.prototipoDiscord.discord;
 
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -7,9 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.JDA;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Slf4j
 @Configuration
+@Profile("!test")
 public class DiscordBotConfig {
 
     @Bean
