@@ -31,8 +31,9 @@ public class ModerationControllerTest {
                 "CanalTest", "CanalTeste",
                 "MensagemTeste", "MensagemTeste", Instant.now());
 
-        RespostaGeminiDTO respostaGeminiDTO = new RespostaGeminiDTO("SEGURO", "teste", 1.0);
-        when(geminiService.analisar(dto)).thenReturn(respostaGeminiDTO);
+//        RespostaGeminiDTO respostaGeminiDTO = new RespostaGeminiDTO("SEGURO", "teste", 1.0);
+        String resposta  = "teste";
+        when(geminiService.analisar(dto)).thenReturn(resposta);
 
         //act
         moderationController.moderar(dto);
