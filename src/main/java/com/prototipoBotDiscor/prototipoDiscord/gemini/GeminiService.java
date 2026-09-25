@@ -17,20 +17,23 @@ public class GeminiService {
 
     private final WebClient webClient;
     private final String apiKey;
+    private final PromptService promptService;
 
     public GeminiService(WebClient geminiWebClient,
-                         @Value("${GEMINI_API_KEY}") String apiKey) {
+                         @Value("${GEMINI_API_KEY}") String apiKey, PromptService promptService) {
         this.webClient = geminiWebClient;
         this.apiKey = apiKey;
+        this.promptService = promptService;
     }
 
-    // Retorno provisório (String bruta) — o parsing estruturado
-    // pro RespostaGeminiDTO vem nas demandas TCCM-018/019.
+
     public String analisar(MensagemDTO mensagem) {
+        String promptCompleto = promptService.montarPrompt(mensagem.getConteudo());
+
         Map<String, Object> body = Map.of(
                 "contents", List.of(
                         Map.of("parts", List.of(
-                                Map.of("text", mensagem.getConteudo())
+                                Map.of("text", promptCompleto)
                         ))
                 )
         );
