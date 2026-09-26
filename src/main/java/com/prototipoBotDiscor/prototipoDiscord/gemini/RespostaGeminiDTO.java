@@ -1,5 +1,6 @@
 package com.prototipoBotDiscor.prototipoDiscord.gemini;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RespostaGeminiDTO {
     private String classificacao;
     private String justificativa;

@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class GeminiWebClientConfig {
 
     private static final String BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models";
-    private static final int TIMEOUT_SEGUNDOS = 5;
+    private static final int TIMEOUT_SEGUNDOS = 60;
 
     @Bean
     public WebClient geminiWebClient() {

@@ -19,9 +19,15 @@ public class ModerationController {
     public void moderar(MensagemDTO dto){
         log.info("ModerationController recebeu para moderar: {}", dto.getConteudo());
 
-        String resposta = geminiService.analisar(dto);
+        RespostaGeminiDTO resposta = geminiService.analisar(dto);
 
-        log.info("Resposta bruta do gemini: {}",resposta);
+        if(resposta == null){
+            log.warn("Não foi possivel obter uma classificação valida para a mensagem: {}", dto.getConteudo());
+            return;
+        }
+
+        log.info("Resultado da anlise do GEMINI: Classificação: {} | Confiança: {} | Justificativa: {}",
+                resposta.getClassificacao(), resposta.getConfianca(), resposta.getJustificativa());
     }
 
 }
