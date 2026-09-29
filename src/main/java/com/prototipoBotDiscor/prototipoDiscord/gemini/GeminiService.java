@@ -27,17 +27,20 @@ public class GeminiService {
     private final String apiKey;
     private final PromptService promptService;
     private final ObjectMapper objectMapper;
+    private final GeminiRateLimiter geminiRateLimiter;
 
-    public GeminiService(WebClient geminiWebClient,
-                         @Value("${GEMINI_API_KEY}") String apiKey, PromptService promptService, ObjectMapper objectMapper) {
+    public GeminiService(WebClient geminiWebClient, @Value("${GEMINI_API_KEY}") String apiKey,
+                         PromptService promptService, ObjectMapper objectMapper, GeminiRateLimiter geminiRateLimiter) {
         this.webClient = geminiWebClient;
         this.apiKey = apiKey;
         this.promptService = promptService;
         this.objectMapper = objectMapper;
+        this.geminiRateLimiter = geminiRateLimiter;
     }
 
 
     public RespostaGeminiDTO analisar(MensagemDTO mensagem) {
+        geminiRateLimiter.aguardarPermissao();
         String promptCompleto = promptService.montarPrompt(mensagem.getConteudo());
 
         Map<String, Object> body = Map.of(
