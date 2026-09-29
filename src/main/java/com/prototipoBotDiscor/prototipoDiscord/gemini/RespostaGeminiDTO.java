@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RespostaGeminiDTO {
-    private String classificacao;
+    private Classificacao classificacao;
     private String justificativa;
     private double confianca;
 }
