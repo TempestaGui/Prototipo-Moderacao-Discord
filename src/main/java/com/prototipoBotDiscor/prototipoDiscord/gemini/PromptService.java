@@ -18,7 +18,7 @@ public class PromptService {
     private String promptBase;
 
     @PostConstruct
-    private void carregarPrompt() {
+    void carregarPrompt() {
         try {
             ClassPathResource resource = new ClassPathResource(PROMPT_PATH);
             promptBase = Files.readString(resource.getFile().toPath(), StandardCharsets.UTF_8);
