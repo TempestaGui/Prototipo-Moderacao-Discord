@@ -33,7 +33,7 @@ public class GeminiRateLimiter {
             log.info("Limite de {} req/min atingido. Aguardando {} ms antes da próxima chamada ao Gemini.",
                     MAX_REQUISICOES_POR_JANELA, tempoEspera);
             try {
-                Thread.sleep(tempoEspera + 50);
+                wait(tempoEspera + 50);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 throw new RuntimeException("Interrompido enquanto aguardava rate limit", e);
