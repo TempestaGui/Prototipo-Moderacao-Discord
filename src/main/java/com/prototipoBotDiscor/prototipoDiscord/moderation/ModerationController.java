@@ -11,9 +11,11 @@ import org.springframework.stereotype.Service;
 public class ModerationController {
 
     private final GeminiService geminiService;
+    private final RuleEngine ruleEngine;
 
-    public ModerationController(GeminiService geminiService){
+    public ModerationController(GeminiService geminiService, RuleEngine ruleEngine){
         this.geminiService = geminiService;
+        this.ruleEngine = ruleEngine;
     }
 
     public void moderar(MensagemDTO dto){
@@ -26,6 +28,9 @@ public class ModerationController {
             return;
         }
 
+        AcaoModeracao acao = ruleEngine.avaliar(resposta);
+
+        log.info("Ação concluida: {} (mensagem: {})", acao, dto.getConteudo());
         log.info("Resultado da anlise do GEMINI: Classificação: {} | Confiança: {} | Justificativa: {}",
                 resposta.getClassificacao(), resposta.getConfianca(), resposta.getJustificativa());
     }
