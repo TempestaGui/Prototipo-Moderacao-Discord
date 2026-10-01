@@ -9,8 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class RuleEngine {
 
-    private static final double LIMIAR_SPAM = 0.7;
-    private static final double LIMIAR_ODIO_ASSEDIO = 0.8;
+    private final ModerationRulesProperties rules;
+
+    public RuleEngine(ModerationRulesProperties rules){
+        this.rules = rules;
+    }
 
     public AcaoModeracao avaliar(RespostaGeminiDTO resposta){
         if(resposta == null){
@@ -28,8 +31,8 @@ public class RuleEngine {
 
         return switch(classificacao){
             case SEGURO -> AcaoModeracao.NENHUMA;
-            case SPAM -> confianca > LIMIAR_SPAM ? AcaoModeracao.APAGAR : AcaoModeracao.AVISAR;
-            case DISCURSO_DE_ODIO, ASSEDIO -> confianca > LIMIAR_ODIO_ASSEDIO ? AcaoModeracao.BANIR_TEMPORARIO : AcaoModeracao.AVISAR;
+            case SPAM -> confianca > rules.getSpam().getThreshold() ? AcaoModeracao.APAGAR : AcaoModeracao.AVISAR;
+            case DISCURSO_DE_ODIO, ASSEDIO -> confianca > rules.getOdioAssedio().getThreshold() ? AcaoModeracao.BANIR_TEMPORARIO : AcaoModeracao.AVISAR;
         };
     }
 
