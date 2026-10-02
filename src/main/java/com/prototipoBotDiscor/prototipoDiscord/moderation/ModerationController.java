@@ -12,10 +12,12 @@ public class ModerationController {
 
     private final GeminiService geminiService;
     private final RuleEngine ruleEngine;
+    private final ActionExecutor actionExecutor;
 
-    public ModerationController(GeminiService geminiService, RuleEngine ruleEngine){
+    public ModerationController(GeminiService geminiService, RuleEngine ruleEngine, ActionExecutor actionExecutor){
         this.geminiService = geminiService;
         this.ruleEngine = ruleEngine;
+        this.actionExecutor = actionExecutor;
     }
 
     public void moderar(MensagemDTO dto){
@@ -33,6 +35,19 @@ public class ModerationController {
         log.info("Ação concluida: {} (mensagem: {})", acao, dto.getConteudo());
         log.info("Resultado da anlise do GEMINI: Classificação: {} | Confiança: {} | Justificativa: {}",
                 resposta.getClassificacao(), resposta.getConfianca(), resposta.getJustificativa());
+
+        switch (acao) {
+            case APAGAR -> actionExecutor.apagarMensagem(dto);
+            case AVISAR -> {
+                // ainda não desenvolvido (TCCM - 27))
+            }
+            case BANIR_TEMPORARIO -> {
+                // ainda não desenvolvido (TCCM - 28))
+            }
+            case NENHUMA -> {
+                // nenhuma ação necessária
+            }
+        }
     }
 
 }
