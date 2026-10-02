@@ -15,8 +15,7 @@ import org.springframework.context.annotation.Profile;
 public class DiscordBotConfig {
 
     @Bean
-    public JDA jda(@Value("${DISCORD_BOT_TOKEN}") String token,
-                   MessageListener messageListener) throws InterruptedException {
+    public JDA jda(@Value("${DISCORD_BOT_TOKEN}") String token) throws InterruptedException {
         log.info("Conectando ao Discord...");
 
         // IMPORTANTE: usar createDefault(token) SEM passar intents diretamente no metodo.
@@ -30,7 +29,6 @@ public class DiscordBotConfig {
         // MESSAGE_CONTENT por cima, sem remover os demais.
         JDA jda = JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
-                .addEventListeners(messageListener)
                 .build()
                 .awaitReady();
 
