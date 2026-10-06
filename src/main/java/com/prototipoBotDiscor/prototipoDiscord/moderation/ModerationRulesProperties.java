@@ -9,9 +9,15 @@ public class ModerationRulesProperties {
 
     private Limiar spam = new Limiar();
     private Limiar odioAssedio = new Limiar();
+    private Banimento banimento = new Banimento();
 
     @Data
     public static class Limiar{
         private double threshold;
+    }
+
+    @Data
+    public static class Banimento{
+        private int duracaoMinutos = 10;
     }
 }

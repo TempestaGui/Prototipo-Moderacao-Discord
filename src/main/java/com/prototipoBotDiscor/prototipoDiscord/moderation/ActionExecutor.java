@@ -3,11 +3,14 @@ package com.prototipoBotDiscor.prototipoDiscord.moderation;
 import com.prototipoBotDiscor.prototipoDiscord.dto.MensagemDTO;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
 import net.dv8tion.jda.api.requests.ErrorResponse;
 import org.springframework.stereotype.Service;
 import net.dv8tion.jda.api.exceptions.ErrorResponseException;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -17,9 +20,12 @@ public class ActionExecutor {
     private final String TEXTO_AVISO_DM = "[⚠ ATENÇÂO ⚠] - Sua mensagem foi sinalizada pela moderação automatica. Por favor, revise as diretrizes da comunidade";
 
     private final JDA jda;
+    private final ModerationRulesProperties rules;
 
-    public ActionExecutor(JDA jda){
+
+    public ActionExecutor(JDA jda, ModerationRulesProperties rules){
         this.jda = jda;
+        this.rules = rules;
     }
 
     public void apagarMensagem(MensagemDTO resposta){
@@ -84,5 +90,42 @@ public class ActionExecutor {
                 msgEnviada -> msgEnviada.delete().queueAfter(15, TimeUnit.SECONDS),
                 erro -> log.error("Falha ao enviar aviso de fallback no canal: {}", erro.getMessage())
         );
+    }
+
+
+    public void banirTemporario(MensagemDTO mensagem) {
+        TextChannel canal = jda.getTextChannelById(mensagem.getCanalId());
+
+        if (canal == null) {
+            log.warn("Canal {} não encontrado — não foi possível aplicar timeout.", mensagem.getCanalId());
+            return;
+        }
+
+        Guild guild = canal.getGuild();
+        int duracaoMinutos = rules.getBanimento().getDuracaoMinutos();
+
+        guild.retrieveMemberById(mensagem.getAutorId()).queue(
+                member -> guild.timeoutFor(member, Duration.ofMinutes(duracaoMinutos)).queue(
+                sucesso -> log.info("Time out de {} min aplicado a {}", duracaoMinutos, mensagem.getAutorName()),
+                        erro -> tratarFalhaTimeout(mensagem, erro)
+                ),
+
+                erro -> {
+                    if(erro instanceof ErrorResponseException ere && ere.getErrorResponse() == ErrorResponse.UNKNOWN_MEMBER){
+                        log.warn("Usuário {} não encontrado no servidor (pode ter saído) — timeout não aplicado.",mensagem.getAutorName());
+                    } else {
+                        log.error("Erro ao buscar membro {} para timeout {}", mensagem.getAutorName(), erro.getMessage());
+                    }
+                }
+        );
+    }
+
+    private void tratarFalhaTimeout(MensagemDTO mensagem, Throwable erro) {
+        if (erro instanceof InsufficientPermissionException) {
+            log.error("Permissão insuficiente para aplicar timeout em {} (verifique o cargo do bot).",
+                    mensagem.getAutorName());
+        } else {
+            log.error("Erro inesperado ao aplicar timeout em {}: {}", mensagem.getAutorName(), erro.getMessage());
+        }
     }
 }
