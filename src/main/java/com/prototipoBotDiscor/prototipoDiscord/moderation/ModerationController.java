@@ -38,9 +38,7 @@ public class ModerationController {
 
         switch (acao) {
             case APAGAR -> actionExecutor.apagarMensagem(dto);
-            case AVISAR -> {
-                // ainda não desenvolvido (TCCM - 27))
-            }
+            case AVISAR -> actionExecutor.avisarUsuario(dto);
             case BANIR_TEMPORARIO -> {
                 // ainda não desenvolvido (TCCM - 28))
             }
