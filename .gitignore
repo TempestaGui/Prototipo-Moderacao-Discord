@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 /.env
+/logs/moderacao.jsonl
 
 ### STS ###
 .apt_generated
