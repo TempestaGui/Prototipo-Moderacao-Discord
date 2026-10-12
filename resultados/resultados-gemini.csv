@@ -1,0 +1,19 @@
+id,mensagem,categoria_esperada,tipo,categoria_obtida,confianca,acao,tempo_ms,status
+1,"GANHE R$ 5000 POR DIA trabalhando de casa!!! clique no link da bio agora",SPAM,spam,SPAM,0.98,APAGAR,4417,OK
+2,"Promoção imperdível!!! Compre seguidores baratos, 10k por apenas R$ 20 -> bit.ly/seg-baratos",SPAM,spam,SPAM,0.98,APAGAR,2077,OK
+3,"ENTRE NO GRUPO VIP DE APOSTAS e multiplique seu dinheiro, link: t.me/apostavip123",SPAM,spam,SPAM,0.98,APAGAR,2836,OK
+4,"Quer emagrecer 10kg em 1 semana? Chama no privado que eu mando o milagre",SPAM,spam,SPAM,0.95,APAGAR,2582,OK
+5,"Vendo conta de jogo com todos os itens, chama no PV, aceito pix",SPAM,spam,SPAM,0.85,APAGAR,4531,OK
+6,"CLIQUE AQUI e resgate seu iPhone grátis: www.premio-gratis-hoje.com",SPAM,spam,SPAM,0.98,APAGAR,47669,OK
+7,"Siga meu perfil e ganhe sorteio, segue lá @sorteios_top_br segue segue segue",SPAM,spam,SPAM,0.98,APAGAR,2664,OK
+8,"Curso de trader com 300% de lucro garantido, vagas limitadas, acesse agora!!!",SPAM,spam,SPAM,0.98,APAGAR,2453,OK
+9,"oi gente, entrem no meu servidor discord.gg/xxxxxx tem nitro grátis lá",SPAM,spam,SPAM,0.95,APAGAR,3182,OK
+10,"Empréstimo sem consulta ao SPC, dinheiro na conta em 5 minutos, chama no zap",SPAM,spam,SPAM,0.98,APAGAR,2299,OK
+11,"🔥🔥🔥 OFERTA RELÂMPAGO 🔥🔥🔥 tênis original 70% off compre já link na bio",SPAM,spam,SPAM,0.98,APAGAR,47859,OK
+12,"Ganhe dinheiro assistindo vídeos! Cadastre-se grátis em www.ganhe-assistindo.net",SPAM,spam,SPAM,0.98,APAGAR,5198,OK
+13,"ATENÇÃO sua conta será banida, confirme seus dados agora em discord-verificacao.com",SPAM,spam,SPAM,0.98,APAGAR,3001,OK
+14,"compre curtidas, comentários e views, preço baixo, chama no privado!!!",SPAM,spam,SPAM,0.98,APAGAR,2791,OK
+15,"Divulgando meu canal do YouTube, se inscreve lá, se inscreve, se inscreve, valeu",SPAM,spam,SPAM,0.9,APAGAR,2214,OK
+16,"Esses imigrantes só vêm pra cá pra roubar, deviam ser todos deportados",DISCURSO_DE_ODIO,odio,DISCURSO_DE_ODIO,0.98,BANIR_TEMPORARIO,47152,OK
+17,"Mulher não tem capacidade de liderar nada, o lugar delas é na cozinha",DISCURSO_DE_ODIO,odio,DISCURSO_DE_ODIO,0.98,BANIR_TEMPORARIO,4635,OK
+18,"Gente dessa religião é tudo terrorista, não deveria ter direito de morar aqui",DISCURSO_DE_ODIO,odio,DISCURSO_DE_ODIO,0.98,BANIR_TEMPORARIO,3091,OK
