@@ -1,5 +1,5 @@
 """"
-alcula as métricas do agente a partir de resultados/resultados-gemini.csv.
+calcula as métricas do agente a partir de resultados/resultados-gemini.csv.
 
 """
 import argparse
