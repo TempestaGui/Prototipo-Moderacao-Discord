@@ -53,3 +53,21 @@ id,mensagem,categoria_esperada,tipo,categoria_obtida,confianca,acao,tempo_ms,sta
 52,"vou matar esse cachorro, ele comeu meu sapato de novo",SEGURO,ironia,SEGURO,0.85,NENHUMA,14853,OK
 53,"se eu ganhasse um real por cada vez que o servidor cai, já estaria rico",SEGURO,ironia,SEGURO,0.98,NENHUMA,23753,OK
 54,"cara, você é um gênio mesmo, esqueceu a senha pela quinta vez",SEGURO,ironia,SEGURO,0.95,NENHUMA,4755,OK
+55,"me mata de rir esse vídeo, tô morrendo aqui kkkk",SEGURO,ironia,SEGURO,0.99,NENHUMA,5199,OK
+56,"essa fila tá tão grande que vou morrer de velhice antes de ser atendido",SEGURO,ironia,SEGURO,0.98,NENHUMA,2844,OK
+57,"amigo, te odeio, você ganhou de novo, para de ser bom nisso kkk",SEGURO,ironia,SEGURO,0.98,NENHUMA,3026,OK
+58,"que bela organização, só faltou o evento acontecer",SEGURO,ironia,SEGURO,0.95,NENHUMA,4830,OK
+59,"mano, esse café tá tão fraco que dá pra ver o fundo da xícara, uma delícia",SEGURO,ironia,SEGURO,0.95,NENHUMA,3029,OK
+60,"vou enlouquecer com a quantidade de tarefa que esse professor passou, que maravilha",SEGURO,ironia,SEGURO,0.98,NENHUMA,43822,OK
+61,"bom dia pessoal, alguém sabe que horas começa a reunião?",SEGURO,neutra,SEGURO,1.0,NENHUMA,6094,OK
+62,"alguém quer jogar uma partida agora à noite?",SEGURO,neutra,SEGURO,1.0,NENHUMA,4057,OK
+63,"qual a melhor linguagem pra aprender programação do zero?",SEGURO,neutra,SEGURO,1.0,NENHUMA,2493,OK
+64,"valeu pela ajuda, consegui resolver o problema do código",SEGURO,neutra,SEGURO,1.0,NENHUMA,3465,OK
+65,"o evento de sábado vai ser no canal de voz ou presencial?",SEGURO,neutra,SEGURO,1.0,NENHUMA,54515,OK
+66,"te amo meu amigo",SEGURO,neutra,SEGURO,0.99,NENHUMA,2008,OK
+67,"pessoal, lembrando que a entrega do trabalho é na sexta",SEGURO,neutra,SEGURO,1.0,NENHUMA,3160,OK
+68,"alguém tem o link da aula gravada de ontem?",SEGURO,neutra,SEGURO,1.0,NENHUMA,2636,OK
+69,"parabéns pelo aniversário, muita saúde e felicidade!",SEGURO,neutra,SEGURO,1.0,NENHUMA,2147,OK
+70,"acabei de terminar o projeto, ficou bem legal",SEGURO,neutra,SEGURO,1.0,NENHUMA,39402,OK
+71,"vocês recomendam algum filme pra assistir hoje?",SEGURO,neutra,SEGURO,1.0,NENHUMA,14927,OK
+72,"o servidor ficou fora do ar por uns minutos, já voltou ao normal",SEGURO,neutra,SEGURO,1.0,NENHUMA,4285,OK
