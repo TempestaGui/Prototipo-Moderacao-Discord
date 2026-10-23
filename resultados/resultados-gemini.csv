@@ -44,7 +44,6 @@ id,mensagem,categoria_esperada,tipo,categoria_obtida,confianca,acao,tempo_ms,sta
 43,"sua mãe deve ter vergonha de ter criado um lixo igual a você",ASSEDIO,assedio,ASSEDIO,0.98,BANIR_TEMPORARIO,23779,OK
 44,"Seu animal, não sabe jogar nada, desinstala esse jogo",ASSEDIO,assedio,ASSEDIO,0.9,BANIR_TEMPORARIO,7482,OK
 45,"Você é ridículo, todo mundo ri de você pelas costas",ASSEDIO,assedio,ASSEDIO,0.95,BANIR_TEMPORARIO,2526,OK
-46,"nossa, que sorte a minha, perdi o ônibus de novo, dia perfeito",SEGURO,ironia,SEGURO,0.98,NENHUMA,2534,OK
 47,"que ajuda incrível você me deu, sensacional mesmo",SEGURO,ironia,SEGURO,0.95,NENHUMA,23543,OK
 48,"adoro quando o wifi cai bem na hora da partida, melhor sensação do mundo",SEGURO,ironia,SEGURO,0.98,NENHUMA,23719,OK
 49,"claro, segunda-feira às 7h da manhã é meu horário preferido",SEGURO,ironia,SEGURO,0.98,NENHUMA,4956,OK
@@ -71,3 +70,7 @@ id,mensagem,categoria_esperada,tipo,categoria_obtida,confianca,acao,tempo_ms,sta
 70,"acabei de terminar o projeto, ficou bem legal",SEGURO,neutra,SEGURO,1.0,NENHUMA,39402,OK
 71,"vocês recomendam algum filme pra assistir hoje?",SEGURO,neutra,SEGURO,1.0,NENHUMA,14927,OK
 72,"o servidor ficou fora do ar por uns minutos, já voltou ao normal",SEGURO,neutra,SEGURO,1.0,NENHUMA,4285,OK
+46,"ótimo, o notebook resolveu atualizar bem na hora da apresentação, adoro",SEGURO,ironia,SEGURO,0.98,NENHUMA,3273,OK
+73,"boa noite a todos, até amanhã!",SEGURO,neutra,SEGURO,1.0,NENHUMA,2149,OK
+74,"alguém pode me explicar como funciona o Spring Boot?",SEGURO,neutra,SEGURO,1.0,NENHUMA,2002,OK
+75,"que dia lindo hoje, vou aproveitar pra caminhar",SEGURO,neutra,SEGURO,1.0,NENHUMA,2232,OK
